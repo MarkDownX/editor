@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>MarkdownX Editor</title>
+</head>
+<body>
+ <div id="toolbar"></div>
+ <div id="editor"></div>
+ <script>
+ var editor;
+ window.addEventListener("load",function (){
+  editor = new MDXEditor({
+   toolbar: toolbar,
+   editor: editor,
+   functions: ["style","bold","italic","underline","ulist","olist","hr","color","hcolor","font","image","link","code","imageStyle","theme","import","export"]
+  });
+ })
+ </script>
+</body>
+</html>
