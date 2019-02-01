@@ -2,19 +2,15 @@
 <html>
 <head>
  <title>MarkdownX Editor</title>
+ <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 <body>
- <div id="toolbar"></div>
  <div id="editor"></div>
+ <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
  <script>
- var editor;
- window.addEventListener("load",function (){
-  editor = new MDXEditor({
-   toolbar: toolbar,
-   editor: editor,
-   functions: ["style","bold","italic","underline","ulist","olist","hr","color","hcolor","font","image","link","code","imageStyle","theme","import","export"]
-  });
- })
+  var quill = new Quill("#editor",{
+   theme: "snow"
+  })
  </script>
 </body>
 </html>
