@@ -5,14 +5,19 @@
  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 </head>
 <body>
- <button id="toMarkdownX">Convert to MarkdownX</button>
+ <button id="toMarkdownX">Get MarkdownX</button> <button id="import">Import MarkdownX</button>
  <div id="editor"></div>
  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
  <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
  <script src="./toolbar.js"></script>
- <script src="./turndown-plugins.js"></script>
  <script>
-  var turndown = new TurndownService();
+  var turndown = new TurndownService({
+   headingStyle: "atx",
+   hr: "___",
+   bulletListMarker: "-",
+   fence: "```",
+   codeBlockStyle: "fenced"
+  });
   var quill = new Quill("#editor",{
    theme: "snow",
    modules: {
@@ -26,5 +31,6 @@
    })
   })
  </script>
+ <script src="./turndown-plugins.js"></script>
 </body>
 </html>
