@@ -1,3 +1,16 @@
+function extractClass (node,cls){
+ if(node.getAttribute("class")){
+  var clss = node.getAttribute("class").split(" ");
+  for(var i = 0;i < clss.length;i++){
+   if(clss[i].indexOf(cls) > -1){
+    return clss[i].slice(clss[i].indexOf(cls));
+   };
+  };
+  return "";
+ }else{
+  return "";
+ };
+}
 turndown.addRule("underline",{
  filter: ['u'],
  replacement: function (content){
@@ -7,7 +20,7 @@ turndown.addRule("underline",{
 turndown.addRule("strike",{
  filter: ['strike','s','del'],
  replacement: function (content){
-  return '--' + content + '--';
+  return '~~' + content + '~~';
  }
 });
 turndown.addRule("superscript",{
@@ -60,5 +73,11 @@ turndown.addRule("imagesize",{
  },
  replacement: function (content, node){
   return '![' + (node.getAttribute("title") || node.getAttribute("alt")) + '](' + node.getAttribute("src") + '{' + node.getAttribute("width") + '})';
+ }
+});
+turndown.addRule("code",{
+ filter: ['code','pre'],
+ replacement: function (content, node){
+  return '```' + extractClass(node, "highlight-") + '\n' + content + '\n```';
  }
 });
