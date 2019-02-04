@@ -9,6 +9,7 @@
  <div id="editor"></div>
  <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
  <script src="https://unpkg.com/turndown/dist/turndown.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
  <script src="./toolbar.js"></script>
  <script>
   var turndown = new TurndownService({
@@ -17,6 +18,15 @@
    bulletListMarker: "-",
    fence: "```",
    codeBlockStyle: "fenced"
+  });
+  var converter = new showdown.Converter({
+   omitExtraWLInCodeBlocks: true,
+   ghCompatibleHeaderId: true,
+   parseImgDimensions: true,
+   tasklists: true,
+   simpleLineBreaks: true,
+   openLinksInNewWindow: true,
+   extensions: ['mdxsd']
   });
   var quill = new Quill("#editor",{
    theme: "snow",
@@ -29,8 +39,13 @@
     var markdown = turndown.turndown(document.getElementsByClassName("ql-editor")[0].innerHTML)
     alert(markdown);
    })
+   document.getElementById("import").addEventListener("click",function (){
+    var markdown = prompt();
+    document.getElementsByClassName("ql-editor")[0].innerHTML = converter.makeHtml(markdown);
+   })
   })
  </script>
  <script src="./turndown-plugins.js"></script>
+ <script src="./showdown-extensions.js"></script>
 </body>
 </html>
