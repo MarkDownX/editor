@@ -2,7 +2,7 @@ var toolbar = [
  ['bold', 'italic', 'underline', 'strike'],
  ['blockquote', 'code-block'],
  
- ['link','image']
+ ['link','image'],
  
  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
@@ -15,6 +15,6 @@ var toolbar = [
  [{ 'font': [] }],
  [{ 'align': [] }],
 
- ['video','formula']
+ ['video','formula'],
  ['clean']   
 ];
