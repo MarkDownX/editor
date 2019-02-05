@@ -2,6 +2,8 @@ var toolbar = [
  ['bold', 'italic', 'underline', 'strike'],
  ['blockquote', 'code-block'],
  
+ ['link','image']
+ 
  [{ 'list': 'ordered'}, { 'list': 'bullet' }],
  [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
  [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
@@ -13,5 +15,6 @@ var toolbar = [
  [{ 'font': [] }],
  [{ 'align': [] }],
 
+ ['video','formula']
  ['clean']   
 ];
